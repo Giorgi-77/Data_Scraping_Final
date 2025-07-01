@@ -1,128 +1,88 @@
-````markdown
-# Multi-Source E-Commerce Scraper
-
-Monitor and analyze product prices across Amazon, eBay, and Newegg using Python-based scraping tools.
-
-## ?? Features
-
-- Static and dynamic scraping (BeautifulSoup + Selenium)
-- Scrapy spider integration
-- SQLite database for storage
-- Pandas-based data cleaning
-- Matplotlib chart generation
-
-## ?? Setup Instructions
-
-1. **Clone the Repo**
-
-```bash
-git clone https://github.com/your-username/final-project.git
-cd final-project
-```
-````
-
-2. **Create a Virtual Environment**
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-```
-
-3. **Install Dependencies**
-
-```bash
-pip install -r requirements.txt
-```
-
-4. **Run Scrapers**
-
-```bash
-python main.py --scrape
-```
-
-5. **Generate Report**
-
-```bash
-python main.py --report
-```
-
-## ?? Output
-
-- `data_output/db.sqlite` � raw data
-- `data_output/reports/item_summary.csv` � cleaned summary
-- `data_output/reports/top_10_prices.png` � price chart
-
-## ?? Contributors
-
-See [CONTRIBUTIONS.md](CONTRIBUTIONS.md)
-
-````
+Based on the final project guidelines and your team of 3 members — **Lizi**, **Giorgi**, and **Lasha** — here's a clear and fair task breakdown for the **E-Commerce Price Monitoring System (Option A)** that matches the required project structure and grading criteria.
 
 ---
 
-## ARCHITECTURE.md
+### 👩‍💻 Lizi – **Frontend, Reporting, and CLI**
 
-```markdown
-# System Architecture Overview
+Focus on user interface, visualizations, and report generation.
 
-## Overview
-The scraper system is designed using modular components for scraping, processing, and reporting price data from multiple e-commerce platforms.
+#### **Responsibilities**
 
-## Components
+* `cli/interface.py`, `cli/commands.py`: Interactive CLI with filters and options.
+* `analysis/reports.py`: Generate HTML and CLI reports.
+* `analysis/statistics.py`, `trends.py`: Data analysis and trend graphs using `matplotlib`, `seaborn`.
+* `data_output/reports/`: Create and manage output reports.
+* `docs/user_guide.md`: Write clear user instructions with screenshots/examples.
+* Testing/reporting CLI components.
+* Documentation formatting and polish.
 
-### Scraper Layer
-- `AmazonScraper`: Uses requests + BeautifulSoup
-- `SeleniumScraper`: Dynamic scraping of eBay using Selenium
-- `NeweggSeleniumScraper`: Uses headless browser automation
-- `QuotesSpider`: Scrapy-based spider to validate framework requirement
+#### **Tech**
 
-### Data Layer
-- SQLite database in `data_output/db.sqlite`
-- Table: `items(id INTEGER, title TEXT, price TEXT)`
-
-### Utility Layer
-- Logger outputs to `logs/project.log`
-- CLI interface using `argparse`
-
-### Output Layer
-- Report CSV via Pandas
-- Price distribution chart via Matplotlib
-
-## Design Patterns
-- **Strategy**: Swappable scraper interfaces
-- **Factory (CLI)**: Choose scrapers via flags
-
-## Future Enhancements
-- Add Redis queue for scheduling
-- Replace SQLite with PostgreSQL
-- Deploy scrapers as microservices
-````
+* `Click`, `argparse`, `matplotlib`, `pandas`, `seaborn`.
 
 ---
 
-## CONTRIBUTIONS.md
+### 👨‍💻 Giorgi – **Scraping System Developer**
 
-```markdown
-# Team Contributions
+Handle all website scraping, scraping logic, and dynamic content extraction.
 
-### ????? Lizi Sakhokia
+#### **Responsibilities**
 
-- Project lead & coordinator
-- Implemented Amazon and Newegg scrapers
-- Final report generation and price chart
-- CLI architecture and logger setup
+* `scrapers/static_scraper.py`: BeautifulSoup scrapers for Amazon/eBay.
+* `scrapers/selenium_scraper.py`: Selenium automation for dynamic site (3rd platform).
+* `scrapers/scrapy_crawler/`: Scrapy-based crawler implementation.
+* Anti-bot: session handling, user-agent rotation, error/retry logic.
+* `utils/helpers.py`, `utils/config.py`, `utils/logger.py`: Logging, config loading, etc.
+* `docs/api_reference.md`: Describe scraper modules, usage.
 
-### ????? Giorgi Parulava
+#### **Tech**
 
-- Developed eBay Selenium scraper
-- Helped integrate database schema
-- Worked on error handling and retry logic
-- Contributed to project structure planning
+* `requests`, `BeautifulSoup4`, `Selenium`, `Scrapy`, `fake_useragent`, `time`, `random`.
 
-### ????? Lasha Bregadze
+---
 
-- Wrote and debugged Scrapy spider
-- Integrated scrapy_runner and JSON output
-- Worked on architecture documentation
-- Finalized README, setup guide, and Markdown formatting
-```
+### 👨‍💻 Lasha – **Architecture, Data Management, and Concurrency**
+
+Focus on backend logic, database, and performance.
+
+#### **Responsibilities**
+
+* `data/models.py`, `data/database.py`: Define data models and database schema (PostgreSQL or SQLite).
+* `data/processors.py`: Validate, clean, transform scraped data.
+* `main.py`: Entry point logic, manage the overall pipeline.
+* Concurrency: implement threading/multiprocessing for scrapers.
+* `config/scrapers.yaml`, `settings.yaml`: Manage config files.
+* `tests/`, especially unit tests for data/storage modules.
+* `docs/architecture.md`: Document pipeline and backend design.
+
+#### **Tech**
+
+* `SQLite/PostgreSQL`, `pandas`, `multiprocessing`, `SQLAlchemy` or `sqlite3`.
+
+---
+
+### 📦 Shared Tasks
+
+| Task                                 | Responsible                        |
+| ------------------------------------ | ---------------------------------- |
+| GitHub Repo Setup, Branches          | All (rotating)                     |
+| README.md, CONTRIBUTIONS.md          | All                                |
+| Code Reviews & Merge Requests        | All                                |
+| Final Testing & Bug Fixing           | All                                |
+| Final Video Demonstration (8–12 min) | All (shared voice or script parts) |
+
+---
+
+### ✅ Final Notes
+
+* **Workflow**: Follow a Git branching model (e.g., `lizi-cli`, `giorgi-scrapers`, `lasha-backend`), and merge to `main` via PRs.
+* **Communication**: Use GitHub issues or a group chat to sync progress.
+* **Milestones**:
+
+  * **Week 1**: Everyone sets up their base modules.
+  * **Week 2**: Midpoint integration + real data scrape + database.
+  * **Week 3**: CLI, Reports, UI polish + testing.
+
+---
+Git link "https://github.com/Giorgi-77/Data_Scraping_Final.git"
+Let me know if you'd like a GitHub `CONTRIBUTIONS.md` file template based on this division.
