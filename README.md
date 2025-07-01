@@ -1,4 +1,8 @@
-Based on the final project guidelines and your team of 3 members — **Lizi**, **Giorgi**, and **Lasha** — here's a clear and fair task breakdown for the **E-Commerce Price Monitoring System (Option A)** that matches the required project structure and grading criteria.
+# E-Commerce Price Monitoring System
+
+[View the GitHub repository »](https://github.com/Giorgi-77/Data_Scraping_Final)
+
+Based on the final project guidelines and our team of three members — **Lizi**, **Giorgi**, and **Lasha** — here’s a clear and fair task breakdown for **Option A** that matches the required project structure and grading criteria.
 
 ---
 
@@ -6,19 +10,19 @@ Based on the final project guidelines and your team of 3 members — **Lizi**, *
 
 Focus on user interface, visualizations, and report generation.
 
-#### **Responsibilities**
+#### Responsibilities
 
-* `cli/interface.py`, `cli/commands.py`: Interactive CLI with filters and options.
-* `analysis/reports.py`: Generate HTML and CLI reports.
-* `analysis/statistics.py`, `trends.py`: Data analysis and trend graphs using `matplotlib`, `seaborn`.
-* `data_output/reports/`: Create and manage output reports.
-* `docs/user_guide.md`: Write clear user instructions with screenshots/examples.
-* Testing/reporting CLI components.
-* Documentation formatting and polish.
+- `src/cli/interface.py`, `src/cli/commands.py`: Interactive CLI with filters and options  
+- `src/analysis/reports.py`: Generate HTML and CSV/JSON reports  
+- `src/analysis/statistics.py`, `src/analysis/trends.py`: Data analysis and trend graphs using `pandas`, `matplotlib`  
+- `data_output/reports/`: Create and manage output reports  
+- `docs/user_guide.md`: Write clear user instructions with examples and screenshots  
+- Testing/reporting CLI components  
+- Documentation formatting and polish  
 
-#### **Tech**
+#### Tech
 
-* `Click`, `argparse`, `matplotlib`, `pandas`, `seaborn`.
+- `argparse`, `pandas`, `matplotlib`, `seaborn`, `csv`, `json`
 
 ---
 
@@ -26,18 +30,18 @@ Focus on user interface, visualizations, and report generation.
 
 Handle all website scraping, scraping logic, and dynamic content extraction.
 
-#### **Responsibilities**
+#### Responsibilities
 
-* `scrapers/static_scraper.py`: BeautifulSoup scrapers for Amazon/eBay.
-* `scrapers/selenium_scraper.py`: Selenium automation for dynamic site (3rd platform).
-* `scrapers/scrapy_crawler/`: Scrapy-based crawler implementation.
-* Anti-bot: session handling, user-agent rotation, error/retry logic.
-* `utils/helpers.py`, `utils/config.py`, `utils/logger.py`: Logging, config loading, etc.
-* `docs/api_reference.md`: Describe scraper modules, usage.
+- `src/scrapers/static_scraper.py`: BeautifulSoup scrapers for static pages  
+- `src/scrapers/selenium_scraper.py`: Selenium automation for JavaScript-driven pages  
+- `src/scrapers/scrapy_crawler/`: Scrapy-based crawler implementation (spiders, pipelines)  
+- Anti-bot: session handling, user-agent rotation, error/retry logic  
+- `src/utils/helpers.py`, `src/utils/config.py`, `src/utils/logger.py`: Logging, config loading, UA rotation, ethical checks  
+- `docs/api_reference.md`: Describe scraper modules, usage, and public interfaces  
 
-#### **Tech**
+#### Tech
 
-* `requests`, `BeautifulSoup4`, `Selenium`, `Scrapy`, `fake_useragent`, `time`, `random`.
+- `requests`, `BeautifulSoup4`, `Selenium`, `Scrapy`, `fake_useragent`, `time`, `random`
 
 ---
 
@@ -45,44 +49,44 @@ Handle all website scraping, scraping logic, and dynamic content extraction.
 
 Focus on backend logic, database, and performance.
 
-#### **Responsibilities**
+#### Responsibilities
 
-* `data/models.py`, `data/database.py`: Define data models and database schema (PostgreSQL or SQLite).
-* `data/processors.py`: Validate, clean, transform scraped data.
-* `main.py`: Entry point logic, manage the overall pipeline.
-* Concurrency: implement threading/multiprocessing for scrapers.
-* `config/scrapers.yaml`, `settings.yaml`: Manage config files.
-* `tests/`, especially unit tests for data/storage modules.
-* `docs/architecture.md`: Document pipeline and backend design.
+- `src/data/models.py`, `src/data/database.py`: Define data models and database schema (SQLite or PostgreSQL)  
+- `src/data/processors.py`: Validate, clean, and transform scraped data  
+- `main.py`: Entry point orchestration of the full pipeline  
+- Concurrency: implement threading / multiprocessing for parallel scrapes  
+- `config/scrapers.yaml`, `config/settings.yaml`: Manage configuration files  
+- `tests/`: Unit and integration tests for data/storage modules  
+- `docs/architecture.md`: Document pipeline design, ER diagrams, and flow  
 
-#### **Tech**
+#### Tech
 
-* `SQLite/PostgreSQL`, `pandas`, `multiprocessing`, `SQLAlchemy` or `sqlite3`.
+- `SQLite` / `PostgreSQL`, `SQLAlchemy`, `pandas`, `multiprocessing`, `threading`
 
 ---
 
 ### 📦 Shared Tasks
 
-| Task                                 | Responsible                        |
-| ------------------------------------ | ---------------------------------- |
-| GitHub Repo Setup, Branches          | All (rotating)                     |
-| README.md, CONTRIBUTIONS.md          | All                                |
-| Code Reviews & Merge Requests        | All                                |
-| Final Testing & Bug Fixing           | All                                |
-| Final Video Demonstration (8–12 min) | All (shared voice or script parts) |
+| Task                                 | Responsible              |
+| ------------------------------------ | ------------------------ |
+| GitHub Repo Setup & Branching       | All (rotate ownership)   |
+| `README.md` & `CONTRIBUTIONS.md`    | All                      |
+| Code Reviews & Merge Requests       | All                      |
+| Final Testing & Bug Fixing          | All                      |
+| Final Video Demonstration (8–12 min) | All (shared script roles)|
 
 ---
 
 ### ✅ Final Notes
 
-* **Workflow**: Follow a Git branching model (e.g., `lizi-cli`, `giorgi-scrapers`, `lasha-backend`), and merge to `main` via PRs.
-* **Communication**: Use GitHub issues or a group chat to sync progress.
-* **Milestones**:
-
-  * **Week 1**: Everyone sets up their base modules.
-  * **Week 2**: Midpoint integration + real data scrape + database.
-  * **Week 3**: CLI, Reports, UI polish + testing.
+- **Workflow**: Each feature on its own branch (`lizi-cli`, `giorgi-scrapers`, `lasha-backend`), PR to `main`  
+- **Communication**: Use GitHub Issues and Slack/Teams for real-time sync  
+- **Milestones**:  
+  1. **Week 1**: Scaffold + static scrapers + DB models  
+  2. **Week 2**: Dynamic scraping + concurrency + initial tests  
+  3. **Week 3**: CLI, reports, docs, full testing + polish  
 
 ---
-Git link "https://github.com/Giorgi-77/Data_Scraping_Final.git"
-Let me know if you'd like a GitHub `CONTRIBUTIONS.md` file template based on this division.
+
+_For full details and the latest updates, see our repository on GitHub:_  
+**https://github.com/Giorgi-77/Data_Scraping_Final**  
